@@ -7,11 +7,11 @@ var cookieParser = require('cookie-parser')
 
 const mysql = require('mysql')
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '1212',
+  host: 'mydb.cu6unrorcuye.us-east-1.rds.amazonaws.com',
+  user: 'admin',
+  password: '1234jack',
   database: 'anny_name',
-  port: ' 3308'
+//   port: ' 3308'
 })
 connection.connect()
 
