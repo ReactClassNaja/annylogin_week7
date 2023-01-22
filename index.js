@@ -15,15 +15,11 @@ const connection = mysql.createConnection({
 })
 connection.connect()
 
-const corsOption = {
-    origin:'https://annylogin-fontend.vercel.app/',
-    credentials: true
-};
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors({
-    origin:'https://annylogin-fontend.vercel.app/',
+    origin:'https://annylogin-fontend.vercel.app',
     credentials: true
 }))
 
@@ -63,7 +59,11 @@ app.post('/login', (req, res) => {
             throw err
         }else{
             if(rows.length> 0){
-                res.cookie("login", rows[0].id)
+                res.cookie("login", rows[0].id, {
+                    path: '/',
+                    sameSite: 'none',
+                    secure: true
+                })
                 let data ={
                     status: 200,
                     message: 'success'
