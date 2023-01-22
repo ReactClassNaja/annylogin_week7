@@ -16,14 +16,14 @@ const connection = mysql.createConnection({
 connection.connect()
 
 const corsOption = {
-    origin:'http://localhost:5173',
+    origin:'https://annylogin-fontend.vercel.app/',
     credentials: true
 };
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors({
-    origin:'http://localhost:5173',
+    origin:'https://annylogin-fontend.vercel.app/',
     credentials: true
 }))
 
